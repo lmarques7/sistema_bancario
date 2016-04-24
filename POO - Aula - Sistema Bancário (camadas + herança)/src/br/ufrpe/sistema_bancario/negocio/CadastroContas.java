@@ -8,7 +8,7 @@ public class CadastroContas {
     private RepositorioContasArray repositorio;
     
     public CadastroContas() {
-        this.repositorio = new RepositorioContasArray(100); 
+        this.repositorio = RepositorioContasArray.getInstance(); 
     }
     
     public void cadastrar(Conta c) {

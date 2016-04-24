@@ -5,16 +5,25 @@ import br.ufrpe.sistema_bancario.negocio.beans.Poupanca;
 
 public class RepositorioContasArray {
 
+    private static RepositorioContasArray instance;
+  
     private static final double TAXA_DE_JUROS = 0.65;
     private Conta[] contas;
     private int proxima;
 
+    public static RepositorioContasArray getInstance() {
+      if (instance == null) {
+        instance = new RepositorioContasArray(100);
+      }
+      return instance;
+    }
+    
     /**
      * Construtor público
      * 
      * @param tamanho Tamanho inicial do array de contas a ser construído
      */
-    public RepositorioContasArray(int tamanho) {
+    private RepositorioContasArray(int tamanho) {
         this.contas = new Conta[tamanho];
         this.proxima = 0;
     }
