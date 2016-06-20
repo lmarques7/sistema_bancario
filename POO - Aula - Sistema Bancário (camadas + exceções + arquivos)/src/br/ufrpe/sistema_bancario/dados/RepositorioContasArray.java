@@ -15,6 +15,8 @@ import br.ufrpe.sistema_bancario.negocio.beans.Poupanca;
 public class RepositorioContasArray
     implements IRepositorioContas, Serializable {
 
+  private static final long serialVersionUID = 2866983109115076704L;
+  
   private double taxaDeJuros = 0.65;
   private Conta[] contas;
   private int proxima;

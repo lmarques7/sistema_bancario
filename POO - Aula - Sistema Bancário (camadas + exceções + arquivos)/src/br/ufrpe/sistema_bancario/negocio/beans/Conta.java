@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Conta implements Serializable {
 
+  private static final long serialVersionUID = -2936766067409686658L;
   private String numero;
   protected double saldo;
 
