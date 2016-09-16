@@ -1,8 +1,6 @@
 package br.ufrpe.sistema_bancario.negocio.beans;
 
-import java.io.Serializable;
-
-public class ContaEspecial extends Conta implements Serializable {
+public class ContaEspecial extends Conta {
     private double limite;
 
     public ContaEspecial(String numero) {

@@ -70,11 +70,12 @@ public class RepositorioContasArray {
         return resultado;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Método para verificar se existe alguma com o número informado como 
+     * parâmetro no Array de contas.
      * 
-     * @see
-     * br.ufrpe.sistema_bancario.dados.IRepositorio#existe(java.lang.String)
+     * @param numConta O número da conta a ser procurada.
+     * @return true se a conta existe, false caso contrário.
      */
     public boolean existe(String numConta) {
         boolean existe = false;

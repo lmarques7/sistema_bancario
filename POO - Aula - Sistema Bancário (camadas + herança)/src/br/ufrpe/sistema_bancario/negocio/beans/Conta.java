@@ -1,8 +1,6 @@
 package br.ufrpe.sistema_bancario.negocio.beans;
 
-import java.io.Serializable;
-
-public class Conta implements Serializable {
+public class Conta {
 
 	private String numero;
 	protected double saldo;
