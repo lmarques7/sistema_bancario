@@ -8,7 +8,7 @@ public class AppAnuncio {
                 System.out.println("Param " + i + ": " + parametros[i]);
             }
         }
-        System.out.println("Terminou");
+        System.out.println("Atualizado");
     }
 
 }
