@@ -3,6 +3,7 @@ package ufrpe.notas;
 public class LivroNotasArray {
     
     private double notas[];
+    private int azul;
     private int qtdNotas;
     
     public LivroNotasArray(int tamanho) {
