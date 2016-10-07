@@ -3,6 +3,7 @@ package ufrpe.notas;
 public class LivroNotasArray {
     
     private double notas[];
+    private int azul;
     private int qtdNotas;
     
     public LivroNotasArray(int tamanho) {
@@ -13,6 +14,8 @@ public class LivroNotasArray {
     public void adicionarNota(double novaNota) {
         notas[qtdNotas] = novaNota;
         qtdNotas++;
+        
+        System.out.println("asdfasdf");
     }
     
     public double calculaMedia() {
