@@ -4,24 +4,15 @@ import br.ufrpe.sistema_bancario.negocio.beans.Conta;
 
 public class RepositorioContasArray {
 
-    private static RepositorioContasArray instance;
-  
     private Conta[] contas;
     private int proxima;
 
-    public static RepositorioContasArray getInstance() {
-      if (instance == null) {
-        instance = new RepositorioContasArray(100);
-      }
-      return instance;
-    }
-    
     /**
      * Construtor público
      * 
      * @param tamanho Tamanho inicial do array de contas a ser construído
      */
-    private RepositorioContasArray(int tamanho) {
+    public RepositorioContasArray(int tamanho) {
         this.contas = new Conta[tamanho];
         this.proxima = 0;
     }
