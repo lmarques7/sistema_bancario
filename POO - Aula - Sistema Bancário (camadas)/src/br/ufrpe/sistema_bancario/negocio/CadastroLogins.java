@@ -1,6 +1,6 @@
 package br.ufrpe.sistema_bancario.negocio;
 
-public class ControladorLogins {
+public class CadastroLogins {
     
     // Mantém referência para uma instância do RepositorioLogins
     

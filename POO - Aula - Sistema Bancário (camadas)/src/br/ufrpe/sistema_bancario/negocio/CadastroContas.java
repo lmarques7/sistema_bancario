@@ -2,18 +2,16 @@ package br.ufrpe.sistema_bancario.negocio;
 import br.ufrpe.sistema_bancario.dados.RepositorioContasArray;
 import br.ufrpe.sistema_bancario.negocio.beans.Conta;
 
-public class ControladorContas {
+public class CadastroContas {
 
     private RepositorioContasArray repositorio;
     
-    public ControladorContas() {
-        this.repositorio = RepositorioContasArray.getInstance(); 
+    public CadastroContas() {
+        this.repositorio = new RepositorioContasArray(100); 
     }
     
     public void cadastrar(Conta c) {
-        if (c == null) {
-            throw new IllegalArgumentException("Parâmetro inválido");
-        } else {
+        if (c != null) {
             if (!this.existe(c.getNumero())) {
                 this.repositorio.cadastrar(c);
             } else {
@@ -85,8 +83,6 @@ public class ControladorContas {
      * @param numOrigem Número da conta origem
      * @param numDestino Número da conta destino
      * @param valor Valor a ser transferido
-     * @throws ContaNaoExisteException 
-     * @throws SaldoInsuficienteException 
      */
     public void transferir(String numOrigem, String numDestino, double valor) {
         Conta origem = this.repositorio.procurar(numOrigem);
