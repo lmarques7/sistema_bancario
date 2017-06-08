@@ -3,7 +3,7 @@ package br.ufrpe.sistema_bancario.negocio.beans;
 public class Conta {
 
 	private String numero;
-	protected double saldo;
+	private double saldo;
 	
 	public Conta(String numero, double saldo){
 		this.setNumero(numero);
