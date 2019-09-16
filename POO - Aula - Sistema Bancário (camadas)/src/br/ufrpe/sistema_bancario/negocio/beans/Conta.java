@@ -35,8 +35,8 @@ public class Conta {
 	}
 	
 	public void creditar (double valor) {
-	  // Um crédito negativo seria um débito
-		if (valor > 0 && this.saldo >= valor) {
+	    // Um crédito negativo seria um débito
+		if (valor > 0 ) {
 			this.saldo = this.saldo + valor;
 		} else {
 		  // Possivel exceção a ser levantada		
@@ -44,7 +44,7 @@ public class Conta {
 	}
 	
 	public void debitar (double valor) {
-		if (valor > 0) {
+		if (valor > 0 && this.saldo >= valor) {
 			this.saldo = this.saldo - valor;
 		} else {
 		  // Possivel exceção a ser levantada
