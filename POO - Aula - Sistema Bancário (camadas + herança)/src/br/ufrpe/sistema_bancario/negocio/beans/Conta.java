@@ -36,7 +36,7 @@ public class Conta {
 	
 	public void creditar (double valor) {
 	  // Um crédito negativo seria um débito
-		if (valor > 0 && this.saldo >= valor) {
+		if (valor > 0) {
 			this.saldo = this.saldo + valor;
 		} else {
 		  // Possivel exceção a ser levantada		
@@ -44,7 +44,7 @@ public class Conta {
 	}
 	
 	public void debitar (double valor) {
-		if (valor > 0) {
+		if (valor > 0 && this.saldo >= valor) {
 			this.saldo = this.saldo - valor;
 		} else {
 		  // Possivel exceção a ser levantada
@@ -58,6 +58,21 @@ public class Conta {
 	  resultado += "************************************\n";
 	  return resultado;
 	}
+	
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Conta) {
+            Conta param = (Conta) obj;
+            // Não considera se ambos os objetos têm valores nulos de atributos
+            if (param.getNumero() != null 
+                    && param.getNumero().equals(this.getNumero()) 
+                    && param.getSaldo() == this.getSaldo()) {
+                resultado = true;
+            }
+        }
+        return resultado;        
+    }
 	
 	public static void main(String[] args) {
 	  Conta c1 = new Conta("456789-95", 154657867);
