@@ -19,7 +19,7 @@ public class RepositorioContasArray {
     }
     
     /**
-     * Construtor público
+     * Construtor privado
      * 
      * @param tamanho Tamanho inicial do array de contas a ser construído
      */

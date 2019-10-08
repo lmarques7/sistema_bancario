@@ -24,7 +24,7 @@ public class RepositorioContasArray
   private static RepositorioContasArray instance;
 
   /**
-   * Construtor público
+   * Construtor privado
    * 
    * @param tamanho
    *          Tamanho inicial do array de contas a ser construído
