@@ -13,7 +13,7 @@ import br.ufrpe.sistema_bancario.negocio.beans.Poupanca;
  */
 public class Banco {
 
-    IRepositorioContas repositorio;
+    private IRepositorioContas repositorio;
     
     public Banco(IRepositorioContas instanciaInterface) {
         this.repositorio = instanciaInterface; 
@@ -79,9 +79,9 @@ public class Banco {
         if (origem != null && destino != null && origem.getSaldo() >= valor) {
             origem.debitar(valor);
             destino.creditar(valor);
-            System.out.println("Transferência realizada com sucesso");
+            System.out.println("LOG: Transferência realizada com sucesso");
         } else {
-            System.out.println("Impossível realizar transferência");
+            System.out.println("LOG: Impossível realizar transferência");
         }
     }
     
