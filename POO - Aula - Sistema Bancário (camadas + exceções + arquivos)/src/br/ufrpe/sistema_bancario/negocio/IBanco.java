@@ -15,7 +15,7 @@ public interface IBanco {
 
   void removerConta(String num) throws ContaNaoExisteException;
 
-  Conta procurarConta(String num);
+  Conta procurarConta(String num) throws ContaNaoExisteException;
 
   void transferir(String numOrigem, String numDestino, double valor)
       throws ContaNaoExisteException, SaldoInsuficienteException;

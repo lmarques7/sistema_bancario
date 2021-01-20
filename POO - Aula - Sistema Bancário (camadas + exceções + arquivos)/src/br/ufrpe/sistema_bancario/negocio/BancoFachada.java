@@ -58,7 +58,7 @@ public class BancoFachada implements IBanco {
    * @see
    * br.ufrpe.sistema_bancario.negocio.IFachada#procurarConta(java.lang.String)
    */
-  public Conta procurarConta(String num) {
+  public Conta procurarConta(String num) throws ContaNaoExisteException {
     return this.contas.procurar(num);
   }
 

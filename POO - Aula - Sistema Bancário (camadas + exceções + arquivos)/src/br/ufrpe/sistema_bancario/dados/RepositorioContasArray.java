@@ -123,14 +123,17 @@ public class RepositorioContasArray
    * @see
    * br.ufrpe.sistema_bancario.dados.IRepositorio#procurar(java.lang.String)
    */
-  public Conta procurar(String num) {
-    int i = this.procurarIndice(num);
-    Conta resultado = null;
-    if (i != this.proxima) {
-      resultado = this.contas[i];
+  public Conta procurar(String num) throws ContaNaoExisteException {
+      int i = this.procurarIndice(num);
+      Conta resultado = null;
+      if (i != this.proxima) {
+        resultado = this.contas[i];
+      } else {
+        throw new ContaNaoExisteException(num);
+      }
+      return resultado;
     }
-    return resultado;
-  }
+
 
   /*
    * (non-Javadoc)
@@ -199,7 +202,7 @@ public class RepositorioContasArray
    * @see
    * br.ufrpe.sistema_bancario.dados.IRepositorio#renderJuros(java.lang.String )
    */
-  public void renderJuros(String num) {
+  public void renderJuros(String num) throws ContaNaoExisteException {
     Conta c = this.procurar(num);
     if (c instanceof Poupanca) {
       ((Poupanca) c).renderJuros(this.taxaDeJuros);

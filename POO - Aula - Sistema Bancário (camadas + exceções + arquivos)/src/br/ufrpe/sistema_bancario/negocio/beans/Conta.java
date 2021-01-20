@@ -3,13 +3,12 @@ package br.ufrpe.sistema_bancario.negocio.beans;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+
+import br.ufrpe.sistema_bancario.exceptions.SaldoInsuficienteException;
 
 public class Conta implements Serializable {
 
@@ -52,47 +51,24 @@ public class Conta implements Serializable {
       this.saldo = this.saldo + valor;
       resultado = true;
     } else {
-      System.out.println("Crédito inválido");
       resultado = false;
     }
     return resultado;
   }
 
-  public boolean debitar(double valor) {
+  public boolean debitar(double valor) throws SaldoInsuficienteException{
     boolean resultado;
     if (valor > 0) {
       this.saldo = this.saldo - valor;
       resultado = true;
     } else {
-      System.out.println("Débito inválido");
-      resultado = false;
+        SaldoInsuficienteException sie = new SaldoInsuficienteException(this.saldo, this.numero);
+        throw sie;
+
     }
     return resultado;
   }
 
-  public boolean transferir(double valor, Conta contaDestino) {
-    boolean resultado;
-    if (valor > 0) {
-      if (contaDestino != null) {
-        if (this.saldo >= valor) {
-          this.debitar(valor);
-          contaDestino.creditar(valor);
-          resultado = true;
-        } else {
-          System.out.println("Saldo insuficiente");
-          resultado = false;
-        }
-      } else {
-        System.out.println("Conta destino inválida");
-        resultado = false;
-      }
-    } else {
-      System.out.println("Transferência inválida");
-      resultado = false;
-    }
-    return resultado;
-  }
-  
     public static void main(String[] args) {
         
 //        List<Conta> contas = new ArrayList<Conta>();
@@ -153,7 +129,6 @@ public class Conta implements Serializable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
         
         
     }

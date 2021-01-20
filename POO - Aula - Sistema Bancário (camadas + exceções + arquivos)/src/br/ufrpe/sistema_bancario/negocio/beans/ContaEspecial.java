@@ -2,6 +2,8 @@ package br.ufrpe.sistema_bancario.negocio.beans;
 
 import java.io.Serializable;
 
+import br.ufrpe.sistema_bancario.exceptions.SaldoInsuficienteException;
+
 public class ContaEspecial extends Conta implements Serializable {
   private static final long serialVersionUID = 2369537755551854483L;
   private double limite;
@@ -38,15 +40,19 @@ public class ContaEspecial extends Conta implements Serializable {
   }
 
   public static void main(String[] args) {
-    Conta contae = new ContaEspecial("2134-5");
-    contae.creditar(500.0);
-    contae.debitar(550.0);
-    ((ContaEspecial) contae).aumentarLimite(100.0);
-    contae.debitar(75.0);
-    ((ContaEspecial) contae).calcularJuros();
-    System.out.println(contae.getSaldo());
+    try {
+        Conta contae = new ContaEspecial("2134-5");
+        contae.creditar(500.0);
+        contae.debitar(550.0);
+        ((ContaEspecial) contae).aumentarLimite(100.0);
+        contae.debitar(75.0);
+        ((ContaEspecial) contae).calcularJuros();
+        System.out.println(contae.getSaldo());
 
-    Conta c = new Conta("1239-7", 55.0);
-    c.getClass();
+        Conta c = new Conta("1239-7", 55.0);
+        c.getClass();
+    } catch (SaldoInsuficienteException e) {
+        System.out.println(e.getMessage());
+    }
   }
 }

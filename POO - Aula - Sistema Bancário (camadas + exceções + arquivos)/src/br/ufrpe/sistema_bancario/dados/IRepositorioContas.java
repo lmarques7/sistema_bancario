@@ -32,8 +32,10 @@ public interface IRepositorioContas {
    *          O número da conta a ser procurada
    * @return A conta encontrada ou null se o número de conta passado com
    *         parâmetro não existir
+ * @throws ContaNaoExisteException Exceção é levantada quando a conta procurada 
+ *                                 não existe
    */
-  Conta procurar(String num);
+  Conta procurar(String num) throws ContaNaoExisteException;
 
   boolean existe(String numConta);
 
@@ -46,7 +48,7 @@ public interface IRepositorioContas {
    */
   void remover(String num) throws ContaNaoExisteException;
 
-  void renderJuros(String num);
+  void renderJuros(String num) throws ContaNaoExisteException;
 
   /**
    * Método que procura por contas cujo saldo é maior do que 1000 e retorna em
