@@ -21,15 +21,16 @@ public class ContaEspecial extends Conta implements Serializable {
     return this.limite;
   }
 
-  public boolean debitar(double valor) {
-    boolean resultado = false;
+  public void debitar(double valor) throws SaldoInsuficienteException {
     if (valor < this.saldo + this.limite) {
       this.saldo = this.saldo - valor;
+    } else {
+        SaldoInsuficienteException sie = new SaldoInsuficienteException(this.saldo, this.getNumero());
+        throw sie;
     }
-    return resultado;
   }
 
-  public void calcularJuros() {
+  public void calcularJuros() throws SaldoInsuficienteException {
     if (this.saldo < 0) {
       // Calculando o valor absoluto dos juros, porque não faz sentido
       // dos juros serem negativos e o débito ser feito de um valor

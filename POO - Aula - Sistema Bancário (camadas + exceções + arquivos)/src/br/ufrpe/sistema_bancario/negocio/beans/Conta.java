@@ -56,17 +56,13 @@ public class Conta implements Serializable {
     return resultado;
   }
 
-  public boolean debitar(double valor) throws SaldoInsuficienteException{
-    boolean resultado;
-    if (valor > 0) {
-      this.saldo = this.saldo - valor;
-      resultado = true;
+  public void debitar(double valor) throws SaldoInsuficienteException {
+    if (this.saldo >= valor) {
+      this.saldo = this.saldo - valor;      
     } else {
         SaldoInsuficienteException sie = new SaldoInsuficienteException(this.saldo, this.numero);
         throw sie;
-
     }
-    return resultado;
   }
 
     public static void main(String[] args) {
